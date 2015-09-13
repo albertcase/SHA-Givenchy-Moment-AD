@@ -13,17 +13,17 @@ document.addEventListener('touchmove' , function (ev){
         var basePath='http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/';
 		var wa = new WxMoment.Analytics({
 		    //projectName 请与微信商务团队确认
-		    projectName: "20150527PIAGET"
+		    projectName: "20150921Givenchymakeup"
 		}); 
 		new WxMoment.Share({
 		    //分享到朋友圈
 		    'moment': {
-		        'title': "女人，要有转动世界的姿态"
+		        'title': "想要玩转潮妆，轻松驾驭魅眼朱唇？快来揭秘吧！"
 		    },
 		    //分享给好友
 		    'friend': {
-		        'title': "女人，要有转动世界的姿态",
-		        'desc': "姚晨：给你一次旋转，一次探寻内心的旅程，和我一起转动世界。"
+		        'title': "想要玩转潮妆，轻松驾驭魅眼朱唇？快来揭秘吧！",
+		        'desc': "魅夜眸色，香榭朱唇，全新潮妆大片，尽在纪梵希高级定制！"
 		    },
 		    'global': {
 		        'img_url': basePath + "/imgs/share.jpg",
@@ -35,11 +35,11 @@ document.addEventListener('touchmove' , function (ev){
 		
 
 
-        var vidArr = ["n01549ttjri"];
+        var vidArr = ["y0017r6gqnw"];
         var vPic = ["http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/poster1.jpg"]
 
 		var player;
-		var videoWidth = document.body.clientWidth;
+		var videoWidth = document.body.clientWidth*0.9;
 		var videoHeight = videoWidth * (1080 / 1920);
 
 		$(".video").css({"height":videoHeight});
@@ -110,7 +110,62 @@ document.addEventListener('touchmove' , function (ev){
 
 
 
+TweenMax.fromTo(document.querySelector('.ani-1'), 1.7, {
+    x:-120,
+    y:-120,
+    scale:0.6,
+    blurFilter:{blurX:50, blurY:10},
+    opacity:0
+}, {
+	x:0,
+	y:0,
+	scale:1,
+	opacity:1,
+    ease: Elastic.easeOut,
+    easeParams: [0.6, 0.9],
+    force3D: false,
+    onComplete:function(){
+   		
+    }
+});	
 
+TweenMax.fromTo(document.querySelector('.ani-2'), 1.9, {
+    x:120,
+    y:-120,
+    scale:0.6,
+    blurFilter:{blurX:50, blurY:10},
+    opacity:0
+}, {
+	x:0,
+	y:0,
+	scale:1,
+	opacity:1,
+    ease: Elastic.easeOut,
+    easeParams: [0.6, 0.9],
+    force3D: false,
+    onComplete:function(){
+   		
+    }
+});	
+
+TweenMax.fromTo(document.querySelector('.ani-3'), 2, {
+    x:-120,
+    y:120,
+    scale:0.6,
+    blurFilter:{blurX:50, blurY:10},
+    opacity:0
+}, {
+	x:0,
+	y:0,
+	scale:1,
+	opacity:1,
+    ease: Elastic.easeOut,
+    easeParams: [0.6, 0.9],
+    force3D: false,
+    onComplete:function(){
+   		
+    }
+});	
 
 
 
