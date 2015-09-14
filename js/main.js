@@ -1,9 +1,64 @@
 /*! main.js */
+function pageChange(curpage){
+    $(".page").hide();
+    $("#"+curpage).css("display","inline-block");
+}
+
 
 document.addEventListener('touchmove' , function (ev){
   ev.preventDefault();
   return false;
 } , false)
+
+
+function _loading(){
+			
+	var loader = new WxMoment.Loader();
+
+	    //添加一个资源
+	    loader.addImage('../imgs/bg-1.jpg');
+	    loader.addImage('../imgs/bg-2.png');
+	    loader.addImage('../imgs/bg-3.png');
+	    loader.addImage('../imgs/bg2.jpg');
+	    loader.addImage('../imgs/click_btn.png');
+	    loader.addImage('../imgs/lipstick_box.png');
+	    loader.addImage('../imgs/lipstick-1.png');
+	    loader.addImage('../imgs/lipstick-2.png');
+	    loader.addImage('../imgs/lipstick-3.png');
+	    loader.addImage('../imgs/lipstick-4.png');
+	    loader.addImage('../imgs/lipstick-5.png');
+	    loader.addImage('../imgs/logo.png');
+	    loader.addImage('../imgs/open_btn.png');
+	    loader.addImage('../imgs/p1.jpg');
+	    loader.addImage('../imgs/p2.jpg');
+	    loader.addImage('../imgs/p3.jpg');
+	    loader.addImage('../imgs/p4.jpg');
+	    loader.addImage('../imgs/p5.jpg');
+	    loader.addImage('../imgs/poster.jpg');
+	    loader.addImage('../imgs/holder.jpg');
+	    loader.addImage('../imgs/qrcode.png');
+	    loader.addImage('../imgs/share.jpg');
+	    loader.addImage('../imgs/slogan.png');
+	    loader.addImage('../imgs/slogan2.png');
+	    loader.addImage('../imgs/wifitips.png');
+
+
+
+	    //监听资源加载完成事件
+	    loader.addCompletionListener(function () {
+	    	pageChange("index");
+	        console.log('加载完成');
+	    });
+
+		loader.addProgressListener(function(e) {
+				//var percent = Math.round( e.completedCount / e.totalCount * 100 );
+				//$(".loading").css({"width":percent+"%"});
+				//$(".process").css({"width": percent+"%"});
+		});
+		
+	    //启动资源加载管理器
+	    loader.start();
+	}
 
 
 
@@ -36,7 +91,7 @@ document.addEventListener('touchmove' , function (ev){
 
 
         var vidArr = ["y0017r6gqnw"];
-        var vPic = ["http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/poster1.jpg"]
+        var vPic = ["imgs/poster.jpg"]
 
 		var player;
 		var videoWidth = document.body.clientWidth*0.9;
@@ -53,54 +108,36 @@ document.addEventListener('touchmove' , function (ev){
 				height: videoHeight + 'px',
 				video: video,
 				pic: vPic[n],
-				modId:"mod_player" //mod_player是刚刚在页面添加的div容器 autoplay:true
+				modId:"mod_player", //mod_player是刚刚在页面添加的div容器 autoplay:true
+				onallended: function () {
+		            //播放器播放完毕时
+		            $(".holder").fadeIn();
+		        }
+
 			});
+
+			$(".holder").click(function(){
+				$(".holder").hide();
+				player.play();
+			})
+
+			// $(".logo").click(function(){
+	  //       	 player.enterFullScreen();
+	  //       	 player.play();
+	  //       })
 		}
 
 
 		videoFun("0");
 
+		$(".open_btn").click(function(){
+            pageChange("product");
+            
+            $(".product_con").animate({"opacity":1}, 1000);
 
+            videoFun("0");
+        })
 
-
-
-		function _loading(){
-			var loader = new WxMoment.Loader();
-			
-			    //添加一个资源
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/active_trace.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/bg.jpg');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/hand.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/handTips.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/holder_bg.jpg');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/join_btn.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/poster1.jpg');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/poster2.jpg');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/poster3.jpg');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/logo.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/pro.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/pro-home.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/slogan_cn.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/slogan_en.png');
-			    loader.addImage('http://wximg.gtimg.com/tmt/_events/20150527-promo-piaget/dist/imgs/share.jpg');
-
-			    //监听资源加载完成事件
-			    loader.addCompletionListener(function () {
-
-			        console.log('加载完成');
-			    });
-
-				loader.addProgressListener(function(e) {
-						var percent = Math.round( e.completedCount / e.totalCount * 100 );
-						//$(".loading").css({"width":percent+"%"});
-						$(".process").css({"width": percent+"%"});
-				});
-				
-			    //启动资源加载管理器
-			    loader.start();
-		}
-
-		_loading();
 
  	})
 
@@ -110,62 +147,70 @@ document.addEventListener('touchmove' , function (ev){
 
 
 
-TweenMax.fromTo(document.querySelector('.ani-1'), 1.7, {
-    x:-120,
-    y:-120,
-    scale:0.6,
-    blurFilter:{blurX:50, blurY:10},
-    opacity:0
-}, {
-	x:0,
-	y:0,
-	scale:1,
-	opacity:1,
-    ease: Elastic.easeOut,
-    easeParams: [0.6, 0.9],
-    force3D: false,
-    onComplete:function(){
-   		
-    }
-});	
+function bgAnimate(animateFun){
+	TweenMax.fromTo(document.querySelector('.ani-1'), 0.6, {
+	    x:-320,
+	    y:-320,
+	    scale:1.6,
+	    blurFilter:{blurX:50, blurY:10},
+	    opacity:0
+	}, {
+		x:0,
+		y:0,
+		scale:1,
+		opacity:1,
+	    ease: Elastic.easeOut,
+	    easeParams: [0.6, 0.9],
+	    force3D: false,
+	    onComplete:function(){
+	   		if(animateFun){
+	    		animateFun();
+	    	}	
+	    }
+	});	
 
-TweenMax.fromTo(document.querySelector('.ani-2'), 1.9, {
-    x:120,
-    y:-120,
-    scale:0.6,
-    blurFilter:{blurX:50, blurY:10},
-    opacity:0
-}, {
-	x:0,
-	y:0,
-	scale:1,
-	opacity:1,
-    ease: Elastic.easeOut,
-    easeParams: [0.6, 0.9],
-    force3D: false,
-    onComplete:function(){
-   		
-    }
-});	
+	TweenMax.fromTo(document.querySelector('.ani-2'), 2, {
+	    x:160,
+	    y:-120,
+	    scale:0.6,
+	    blurFilter:{blurX:50, blurY:10},
+	    opacity:0
+	}, {
+		x:0,
+		y:0,
+		scale:1,
+		opacity:1,
+	    ease: Elastic.easeOut,
+	    easeParams: [0.6, 0.9],
+	    force3D: false,
+	    onComplete:function(){
+	   		
+	    }
+	});	
 
-TweenMax.fromTo(document.querySelector('.ani-3'), 2, {
-    x:-120,
-    y:120,
-    scale:0.6,
-    blurFilter:{blurX:50, blurY:10},
-    opacity:0
-}, {
-	x:0,
-	y:0,
-	scale:1,
-	opacity:1,
-    ease: Elastic.easeOut,
-    easeParams: [0.6, 0.9],
-    force3D: false,
-    onComplete:function(){
-   		
-    }
-});	
+	TweenMax.fromTo(document.querySelector('.ani-3'), 3, {
+	    x:-120,
+	    y:200,
+	    scale:0.6,
+	    blurFilter:{blurX:50, blurY:10},
+	    opacity:0
+	}, {
+		x:0,
+		y:0,
+		scale:1,
+		opacity:1,
+	    ease: Elastic.easeOut,
+	    easeParams: [0.6, 0.9],
+	    force3D: false,
+	    onComplete:function(){
+	    	
+	    }
+	});	
+}
+
+
+
+
 
 
 

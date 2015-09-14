@@ -31,164 +31,34 @@
         <img src="imgs/logo.png" width="100%" />
     </a>
 
-    <!-- loading -->
-    <section class="page" id="loading" style="display:inline-block;">
+    <!-- qrcode -->
+    <section class="page" id="qrcode">
         <div class="pagebg">
             <img src="imgs/bg-1.jpg" width="100%" class="ani-1" />
             <img src="imgs/bg-2.png" width="100%" class="ani-2" />
             <img src="imgs/bg-3.png" width="100%" class="ani-3" />
         </div>
 
-        <div class="loading_con">
-            纪梵希高定大片<br />加载中…
+        <div class="qrcode">
+            <img src="imgs/qrcode.png" width="100%" />
         </div>
     </section>
-    
-    <!-- index -->
-    <section class="page" id="index">
-        
-        <div class="video_con">
-            <div class="video">
-                <div class="holder">
-                    <img src="imgs/holder.jpg" width="100%" />
-                </div>
-                <div id="mod_player"></div>
-            </div>
-            <div class="videoTips"><img src="imgs/wifitips.png" width="50%" /></div>
 
-            <div class="slogan">
-                <img src="imgs/slogan.png" width="100%" />
-            </div>
-
-            <a href="javascript:;" class="btn open_btn">
-                <img src="imgs/open_btn.png" width="100%" />
-            </a>
-        </div>
-
-        <img src="imgs/bg2.jpg" width="100%" />
-    </section>
-
-    <!-- product -->
-    <section class="page" id="product">
-        <div class="product_con">
-            <img src="imgs/p1.jpg" width="100%" />
-        </div>
-
-        <div class="product_list">
-            <ul>
-                <li data-info="imgs/p1.jpg">
-                    <img class="mimg" src="imgs/lipstick_box.png" width="100%" />
-                    <img src="imgs/lipstick-1.png" width="100%" />
-                </li>
-                <li data-info="imgs/p2.jpg">
-                    <img class="mimg" src="imgs/lipstick_box.png" width="100%" />
-                    <img src="imgs/lipstick-2.png" width="100%" />
-                </li>
-                <li data-info="imgs/p3.jpg">
-                    <img class="mimg" src="imgs/lipstick_box.png" width="100%" />
-                    <img src="imgs/lipstick-3.png" width="100%" />
-                </li>
-                <li data-info="imgs/p4.jpg">
-                    <img class="mimg" src="imgs/lipstick_box.png" width="100%" />
-                    <img src="imgs/lipstick-4.png" width="100%" />
-                </li>
-                <li data-info="imgs/p5.jpg">
-                    <img class="mimg" src="imgs/lipstick_box.png" width="100%" />
-                    <img src="imgs/lipstick-5.png" width="100%" />
-                </li>
-            </ul>
-
-
-        </div>
-        <a href="qrcode.html" class="click_btn">
-            <img src="imgs/click_btn.png" width="100%" />
-        </a>
-    </section>
-
-
-    <img src="imgs/bg2.jpg" width="100%" style="opacity:0;" />
+    <img src="imgs/bg.jpg" width="100%" />
 </div>
 
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/tweenMax.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-<script src="http://imgcache.gtimg.cn/tencentvideo_v1/tvp/js/tvp.player_v2.js"></script>
 
 <script type="text/javascript">
-        _loading();
-        bgAnimate();
-
-
-        $(".product_list li").click(function(){
-            
-            var proInfo = $(this).attr("data-info");
-            var cur_img = $(this).find("img.mimg");
-            var _this = $(this);
-            var _thishover = $(".product_list li.hover img.mimg");
-
-            var cimg = new Image();
-            cimg.src = proInfo;
-            cimg.onload = function() { 
-                
-                TweenMax.fromTo(_thishover, 0.2, {
-                    y:-200,
-                    scale:1,
-                    autoAlpha:0,
-                    blurFilter:{blurX:50, blurY:10},
-                    opacity:0
-                }, {
-                    y:0,
-                    autoAlpha:1,
-                    scale:1,
-                    opacity:1,
-                    ease: Elastic.easeOut,
-                    easeParams: [0.2, 0.7],
-                    force3D: false,
-                    onComplete:function(){
-                    }
-                });
-
-                if(_this.hasClass("hover")){
-                    $(".product_con img").animate({"opacity":0},300);
-                    $(".product_list li").removeClass("hover");
-                }else{
-
-
-                    TweenMax.fromTo(cur_img, 1.2, {
-                        y:0,
-                        scale:1,
-                        autoAlpha:1,
-                        blurFilter:{blurX:50, blurY:10},
-                        opacity:1
-                    }, {
-                        y:-200,
-                        autoAlpha:0,
-                        scale:1,
-                        opacity:0,
-                        ease: Elastic.easeOut,
-                        easeParams: [0.2, 0.7],
-                        force3D: false,
-                        onComplete:function(){
-                        }
-                    });
-
-
-                    $(".product_con img").attr("src",proInfo);
-                    $(".product_con img").animate({"opacity":1},300);
-
-                    $(".product_list li").removeClass("hover");
-                     _this.addClass("hover");
-
-                }
-
-                
-            }
-
-            
-        })
-    </script>
-
+    pageChange("qrcode");
+    function qrcodeShow(){
+        $(".qrcode").fadeIn();
+    }
+    bgAnimate(qrcodeShow);
+</script>
 
 
 <!-- 横屏代码 -->
