@@ -262,6 +262,11 @@ html {
   overflow: hidden;
   display: inline-block;
   position: relative;
+  line-height: 0;
+}
+
+#mod_player{
+  margin: -1px 0 0 0;
 }
 
 .holder{
