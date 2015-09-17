@@ -366,7 +366,8 @@ html {
 .hand_animate.list_animate{
   left: 23%;
   top: 22%;
-  width: 18%
+  width: 18%;
+  display: none;
 }
 
 .hand_animate span{
