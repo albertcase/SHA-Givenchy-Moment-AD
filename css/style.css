@@ -290,7 +290,7 @@ html {
 .slogan{
   width: 72%;
   display: inline-block;
-  margin: 9% 0 6% 0;
+  margin: 3% 0 12% 0;
 }
 
 .btn{
@@ -352,6 +352,29 @@ html {
   bottom: 0;
   z-index: 2;
   line-height: 0;
+  display: none;
+}
+
+.hand_animate{
+  width: 15%;
+  position: absolute;
+  left: 70%;
+  top: -6%;
+  z-index: 3;
+}
+
+.hand_animate.list_animate{
+  left: 43%;
+  top: 22%;
+  width: 18%
+}
+
+.hand_animate span{
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  z-index: 2;
 }
 
 .qrcode{
@@ -368,7 +391,105 @@ html {
 .qrcode img{
   width: 50%;
   display: inline-block;
-  margin: 57% 0 0 25%;
+  margin: 50% 0 0 25%;
 }
+
+
+
+
+
+
+
+/* 手势 */
+/*给这个按钮创建一个动名名称：buttonLight，然后在每个时间段设置不同的background,color来达到变色效果，改变box-shadow来达到发光效果*/
+  @-webkit-keyframes 'buttonshowhide' {
+    from {
+       opacity: 1
+    }
+    10% {
+       opacity: 0.9
+    }
+    20% {
+      opacity: 0.8
+    }
+    30% {
+      opacity: 0.7
+    }
+    40% {
+      opacity: 0.6
+    }
+    50% {
+      opacity: 0.5
+    }
+    60% {
+      opacity: 0.4
+    }
+   to {
+     opacity: 0.3
+    }
+  }
+
+
+
+
+  @-webkit-keyframes 'buttonmove' {
+    from {
+       left: 50%;
+       top: 45%;
+    }
+    10% {
+       left: 50%;
+       top: 45%;
+    }
+    20% {
+      left: 51%;
+      top: 46%;
+    }
+    30% {
+      left: 52%;
+      top: 47%;
+    }
+    40% {
+      left: 53%;
+      top: 48%;
+    }
+    50% {
+      left: 54%;
+      top: 49%;
+    }
+    60% {
+      left: 55%;
+      top: 50%;
+    }
+   to {
+      left: 56%;
+      top: 51%;
+    }
+  }
+
+
+
+.handbg {
+    /*调用animation属性，从而让按钮在载入页面时就具有动画效果*/
+    -webkit-animation-name: "buttonshowhide"; /*动画名称，需要跟@keyframes定义的名称一致*/
+    -webkit-animation-duration: 1.2s;/*动画持续的时间长*/
+    -webkit-animation-timing-function: linear;/*动画播放频率*/
+    -webkit-animation-iteration-count: infinite;/*动画循环播放的次数*/
+}
+
+
+.hand_animate span   aaaaaaa {
+    /*调用animation属性，从而让按钮在载入页面时就具有动画效果*/
+    -webkit-animation-name: "buttonmove"; /*动画名称，需要跟@keyframes定义的名称一致*/
+    -webkit-animation-duration: 1.2s;/*动画持续的时间长*/
+    -webkit-animation-timing-function: linear;/*动画播放频率*/
+    -webkit-animation-iteration-count: infinite;/*动画循环播放的次数*/
+}
+
+
+
+
+
+
 
 

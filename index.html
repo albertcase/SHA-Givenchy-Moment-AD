@@ -54,7 +54,7 @@
                 </div>
                 <div id="mod_player"></div>
             </div>
-            <div class="videoTips"><img src="imgs/wifitips.png" width="50%" /></div>
+            <div class="videoTips"><img src="imgs/wifitips.png" width="42%" /></div>
 
             <div class="slogan">
                 <img src="imgs/slogan.png" width="100%" />
@@ -75,6 +75,12 @@
         </div>
 
         <div class="product_list">
+            <div class="hand_animate list_animate">
+                <img src="imgs/handbg.png" width="100%" class="handbg" />
+                <span>
+                     <img src="imgs/handicon.png" width="100%" />
+                </span>
+            </div>
             <ul>
                 <li data-info="imgs/p1.jpg">
                     <img class="mimg" src="imgs/lipstick_box.png" width="100%" />
@@ -102,6 +108,12 @@
         </div>
         <a href="qrcode.html" class="click_btn">
             <img src="imgs/click_btn.png" width="100%" />
+            <div class="hand_animate">
+                <img src="imgs/handbg.png" class="handbg" width="100%" />
+                <span>
+                     <img src="imgs/handicon.png" width="100%" />
+                </span>
+            </div>
         </a>
     </section>
 
@@ -121,11 +133,14 @@
 
 
         $(".product_list li").click(function(){
-            
+            $(".list_animate").hide();
+
             var proInfo = $(this).attr("data-info");
             var cur_img = $(this).find("img.mimg");
             var _this = $(this);
             var _thishover = $(".product_list li.hover img.mimg");
+
+            $(".click_btn").show();
 
             var cimg = new Image();
             cimg.src = proInfo;

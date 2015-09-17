@@ -41,6 +41,9 @@ function _loading(){
 	    loader.addImage('../imgs/slogan.png');
 	    loader.addImage('../imgs/slogan2.png');
 	    loader.addImage('../imgs/wifitips.png');
+	    loader.addImage('../imgs/handicon.png');
+	    loader.addImage('../imgs/handbg.png');
+	    
 
 
 
@@ -124,6 +127,7 @@ function _loading(){
 
 			$(".holder").click(function(){
 				$(".holder").hide();
+				player.enterFullScreen();
 				player.play();
 			})
 
