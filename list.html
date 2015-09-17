@@ -89,10 +89,12 @@
 <script type="text/javascript">
     $(".product_con").animate({"opacity":1}, 1000);
 
-    $(".product_list").mouseover(function(){
+        $(".product_list").mouseover(function(){
             $(".list_animate").hide();
         })
         
+        $(".product_list li").eq(0).click();
+
         $(".product_list li").click(function(){
             $(".list_animate").hide();
 
