@@ -131,7 +131,10 @@
         _loading();
         bgAnimate();
 
-
+        $(".product_list").mouseover(function(){
+            $(".list_animate").hide();
+        })
+        
         $(".product_list li").click(function(){
             $(".list_animate").hide();
 
