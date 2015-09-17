@@ -318,7 +318,7 @@ html {
   width: 100%;
   position: absolute;
   left: 0;
-  bottom: -6%;
+  bottom: -9.6%;
 }
 
 .product_list ul{
@@ -327,15 +327,15 @@ html {
 }
 
 .product_list li{
-  width:12%;
+  width:14%;
   display: inline-block;
   float: left;
-  margin: 0 3%;
+  margin: 0 2%;
   position: relative;
 }
 
 .product_list li:nth-child(1){
-  margin-left: 8%;
+  margin-left: 6%;
 }
 
 .product_list li img:nth-child(1){
