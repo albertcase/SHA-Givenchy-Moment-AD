@@ -91,16 +91,20 @@
 
         $(".product_list").mouseover(function(){
             $(".list_animate").hide();
-            $(".click_btn").show();
         })
         
 
-        $(".product_list li,.list_animate").click(function(){
+        $(".product_list li").click(function(){
 
             var proInfo = $(this).attr("data-info");
             var cur_img = $(this).find("img.mimg");
             var _this = $(this);
             var _thishover = $(".product_list li.hover img.mimg");
+
+            if($(this).index()!=1){
+                $(".list_animate").hide();
+                $(".click_btn").show();
+            }
 
             var cimg = new Image();
             cimg.src = proInfo;
