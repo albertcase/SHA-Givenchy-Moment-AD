@@ -138,7 +138,6 @@ function _loading(){
 		}
 
 
-		videoFun("0");
 
  	})
 
