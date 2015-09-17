@@ -101,7 +101,11 @@
             var _this = $(this);
             var _thishover = $(".product_list li.hover img.mimg");
 
-
+            if(_this.index()!=0){
+                $(".list_animate").hide();
+                $(".click_btn").show();
+            }
+            
             var cimg = new Image();
             cimg.src = proInfo;
             cimg.onload = function() { 
@@ -145,10 +149,7 @@
                         easeParams: [0.2, 0.7],
                         force3D: false,
                         onComplete:function(){
-                            if(_this.index()!=0){
-                                $(".list_animate").hide();
-                                $(".click_btn").show();
-                            }
+                            
                         }
                     });
 
