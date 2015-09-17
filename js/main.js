@@ -137,7 +137,10 @@ function _loading(){
 	  //       })
 		}
 
-
+		if($("#index").length>0){
+			videoFun("0");
+		}
+		
 
  	})
 
