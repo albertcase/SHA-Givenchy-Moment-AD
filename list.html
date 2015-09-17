@@ -102,11 +102,6 @@
             var _thishover = $(".product_list li.hover img.mimg");
 
 
-            if($(this).index()!=0){
-                $(".list_animate").hide();
-                $(".click_btn").show();
-            }
-
             var cimg = new Image();
             cimg.src = proInfo;
             cimg.onload = function() { 
@@ -135,7 +130,7 @@
                 }else{
 
 
-                    TweenMax.fromTo(cur_img, 1.2, {
+                    TweenMax.fromTo(cur_img, 1.8, {
                         y:0,
                         scale:1,
                         autoAlpha:1,
@@ -150,6 +145,10 @@
                         easeParams: [0.2, 0.7],
                         force3D: false,
                         onComplete:function(){
+                            if(_this.index()!=0){
+                                $(".list_animate").hide();
+                                $(".click_btn").show();
+                            }
                         }
                     });
 
