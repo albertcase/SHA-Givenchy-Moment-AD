@@ -119,8 +119,8 @@ function _loading(){
 		        },
 		        onpause: function () {
 		            //播放器触发暂停时，目前只针对HTML5播放器有效
-		            $(".holder").fadeIn();
-		            videoFun("0");
+		            // $(".holder").fadeIn();
+		            // videoFun("0");
 		        },
 
 			});
