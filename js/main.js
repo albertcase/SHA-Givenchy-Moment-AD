@@ -140,15 +140,6 @@ function _loading(){
 
 		videoFun("0");
 
-		$(".open_btn").click(function(){
-            pageChange("product");
-            
-            $(".product_con").animate({"opacity":1}, 1000);
-
-            videoFun("0");
-        })
-
-
  	})
 
 })(jQuery)
