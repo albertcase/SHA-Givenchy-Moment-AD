@@ -87,17 +87,15 @@
 <script type="text/javascript" src="js/tweenMax.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript">
-    $(".product_con").animate({"opacity":1}, 1000);
+        $(".product_con").animate({"opacity":1}, 1000);
 
         $(".product_list").mouseover(function(){
             $(".list_animate").hide();
         })
         
-        $(".product_list li").eq(0).bind("click");
 
         $(".product_list li").click(function(){
-            $(".list_animate").hide();
-
+            
             var proInfo = $(this).attr("data-info");
             var cur_img = $(this).find("img.mimg");
             var _this = $(this);
@@ -165,6 +163,9 @@
 
             
         })
+
+
+        $(".product_list li").eq(0).click();
 
 </script>
 
